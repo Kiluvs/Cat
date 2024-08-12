@@ -1,0 +1,69 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[15];
+
+        // a) Input 15 values into the array
+        System.out.println("Enter 15 integer values:");
+        for (int i = 0; i < 15; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        // a) Print values in the array
+        System.out.println("Values in the array:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        // b) Check if a number is in the array
+        System.out.print("Enter a number to search for: ");
+        int searchNumber = scanner.nextInt();
+        boolean found = false;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == searchNumber) {
+                System.out.println("The number found at index " + i);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Number not found in this array");
+        }
+
+        // c) Sort the array in ascending order
+        Arrays.sort(numbers);
+        System.out.println("Sorted array:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        // d) Reverse the array and print
+        int[] reversedArray = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            reversedArray[i] = numbers[numbers.length - 1 - i];
+        }
+        System.out.println("Reversed array:");
+        for (int num : reversedArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        // e) Calculate sum and product of all elements
+        int sum = 0;
+        int product = 1;
+        for (int num : numbers) {
+            sum += num;
+            product *= num;
+        }
+        System.out.println("Sum: " + sum);
+        System.out.println("Product: " + product);
+
+        scanner.close();
+    }
+
+}

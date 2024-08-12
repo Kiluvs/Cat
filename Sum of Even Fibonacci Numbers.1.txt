@@ -1,0 +1,24 @@
+
+public class FibonacciEvenSum {
+    public static void main(String[] args) {
+        System.out.println("Sum of even Fibonacci numbers not exceeding 4 million: " + sumEvenFibonacci(4000000));
+    }
+
+    public static int sumEvenFibonacci(int limit) {
+        int a = 1, b = 2;
+        int sum = 0;
+
+        while (a <= limit) {
+            if (a % 2 == 0) {
+                sum += a;
+            }
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+
+        return sum;
+    }
+}
+
+
